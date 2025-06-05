@@ -1,0 +1,40 @@
+.botón{
+    position: fixed; /*El botón queda flotante encima del contenido*/
+    
+    bottom: 30px; /*Desde abajo*/
+
+    right: 40px; /*Desde la derecha*/
+
+    border-radius: 50%; /*Para hacer redondo el botón*/
+
+    background-color: rgb(0, 160, 8); /*Cambiar el color del botón*/
+
+    width: 70px;
+    height: 70px; /*Tamaño del botón para que quede simétrico*/
+
+    border: none; /*Quitar border el botón por defecto*/
+
+    box-shadow: 0 4px 10px rgba(0, 0 , 0, 0.5); /*Sombra del botón*/
+
+    display: flex; /*Activamos Flexbox*/
+
+    justify-content: center; /*Alineación horizontal*/
+
+    align-items: center; /*Alineación vertical*/
+
+    z-index: 1001; /*Para que el botón quede encima de todo*/
+
+    transition: transform 0.4s; /*Duración de la animación*/
+}
+
+.botón:hover{
+    transform: scale(1.1); /*Que tanto se va a hacer mas grande el botón*/
+}
+
+.tabla-scroll{
+    overflow-x: auto; /*Scroll horizontal*/
+}
+
+button{
+    margin: 2px;
+}

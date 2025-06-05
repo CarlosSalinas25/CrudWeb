@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestión de Equipo expo</title>
 
+    <!--Hoja de estilos propia-->
     <link rel="stylesheet" href="Css/Style.css">
+
+    <!--Esta es la hoja de estilos de pico css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 </head>
 <body>
@@ -19,7 +22,6 @@
             </ul>
 
             <ul>
-                <li><a href="#">Integrantes</a></li>
                 <li><a href="#">Tareas</a></li>
                 <li><a href="#">Mi perfil</a></li>
                 <li><a href="#" role="button">Cerrar sesión</a></li>
@@ -30,25 +32,33 @@
     <main class="container">
         <h2>Integrantes del equipo</h2>
 
-        <table id="tabla"  class="overflow-auto">
-            <thead>
-                <!--"tr" - table row - fila -->
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo electrónico</th>
-                    <th>Acciones</th> <!-- Botones para editar y eliminar -->
-                </tr>
-            </thead>
+        <div class="tabla-scroll">
+            <table id="tabla"  class="overflow-auto">
+                <thead>
+                    <!--"tr" - table row - fila -->
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo electrónico</th>
+                        <th>Acciones</th> <!-- Botones para editar y eliminar -->
+                    </tr>
+                </thead>
+    
+                <tbody>
+    
+                    <!-- Aquí van los registros que vienen por la API -->
+    
+                </tbody>
+            </table>
+        </div>
 
-            <tbody>
-
-                <!-- Aquí van los registros que vienen por la API -->
-
-            </tbody>
-        </table>
     </main>
+
+    <!--Botón flotante para agregar registros-->
+    <button id="btnAgregar" class="botón">
+        <img src="img/plus.png" alt="">
+    </button>
 
     <script src="Js/Script.js"></script>
 </body>
