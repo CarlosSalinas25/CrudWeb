@@ -45,3 +45,31 @@ function MostrarDatos(datos){
 
 ObtenerIntegrantes();
 
+
+
+
+//Proceso para agragar un nuevo integrante
+const modal = document.getElementById("mdAgregar"); //Cuadro de diálogo
+const btnAgregar = document.getElementById("btnAgregar"); //Botón para agregar
+const btnClose = document.getElementById("btnClose"); //Botón para cerrar el cuadro
+
+btnAgregar.addEventListener("click", ()=>{
+    modal.showModal(); //Abrir el modal al hcaer click en el botón
+});
+
+btnClose.addEventListener("click", ()=>{
+    modal.close(); //Abrir el modal al hcaer click en el botón
+});
+
+
+
+//Agregar nuevo integrante desde el formulario
+document.getElementById("frmAgregar").addEventListener("submit", async e => {
+    e.preventDefault(); //"e" representa a "submit". Evita que el formulario se envíe de un solo.
+
+    //Capturar los valores del formulario
+    const Nombre = document.getElementById("txtNombre").Value.trim();
+    const Apellido = document.getElementById("txtApellido").Value.trim();
+    const Correo = document.getElementById("txtCorreo").Value.trim();
+
+});
