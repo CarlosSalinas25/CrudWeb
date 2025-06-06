@@ -68,8 +68,38 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
     e.preventDefault(); //"e" representa a "submit". Evita que el formulario se envíe de un solo.
 
     //Capturar los valores del formulario
-    const Nombre = document.getElementById("txtNombre").Value.trim();
-    const Apellido = document.getElementById("txtApellido").Value.trim();
-    const Correo = document.getElementById("txtCorreo").Value.trim();
+    const Nombre = document.getElementById("txtNombre").value.trim();
+    const Apellido = document.getElementById("txtApellido").value.trim();
+    const Correo = document.getElementById("txtEmail").value.trim();
+
+    //Validación básica
+    if(!Nombre || !Apellido || !Correo){
+        alert("Ingrese los valores correctamente");
+        return; //Para evitar que el código se siga ejecutando
+    }
+
+    //Llamar a la API para enviar el registro
+    const respuesta = await fetch(API_URL, {
+        method: "POST", //Tipo de solicitud 
+        headers: {'Content-Type' : 'application/json'}, //Tipo de dato enviado
+        body: JSON.stringify({Nombre, Apellido, Correo}) //Datos enviados
+    });
+
+    //Verificar si la API responde que los datos gueron enviados correctamente
+    if(respuesta.ok){
+        alert("El registro fué agregado correctamente")
+
+        //Limpiar el formulario
+        document.getElementById("frmAgregar").reset();
+
+        //Cerrar el modal (dialog)
+        modal.close();
+
+        //Recarga la tabla
+        ObtenerIntegrantes();
+    }
+    else{
+        alert("El registro no pudo ser agregado");
+    }
 
 });
