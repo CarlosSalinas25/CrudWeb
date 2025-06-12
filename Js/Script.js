@@ -35,7 +35,7 @@ function MostrarDatos(datos){
                 <td>${integrante.Apellido}</td>
                 <td>${integrante.Correo}</td>
                 <td>
-                    <button>Editar</button>
+                    <button onclick="AbrirModalEditar('${integrante.id}', '${integrante.Nombre}', '${integrante.Apellido}', '${integrante.Correo}')">Editar</button>
                     <button onclick="EliminarPersona(${integrante.id})">Eliminar</button>
                 </td>
             </tr>
@@ -58,7 +58,7 @@ btnAgregar.addEventListener("click", ()=>{
 });
 
 btnClose.addEventListener("click", ()=>{
-    modal.close(); //Abrir el modal al hcaer click en el botón
+    modal.close(); //Cerrar el modal al hcaer click en la X
 });
 
 
@@ -120,4 +120,26 @@ async function EliminarPersona(id){
         ObtenerIntegrantes();
         alert("El registro fué eliminado correctamente");
     }
+}
+
+
+
+//Proceso para editar un registro
+const modalEditar = document.getElementById("mdEditar");
+const btnCloseEditar = document.getElementById("btnCloseEditar");
+
+btnCloseEditar.addEventListener("click", ()=>{
+    modalEditar.close(); //Cerrar el modal al hacer click en la X
+});
+
+
+function AbrirModalEditar(id, nombre, apellido, correo){
+    //Se asignan los valores del registro en los input
+    document.getElementById("txtIdEditar").value = id;
+    document.getElementById("txtNombreEditar").value = nombre;
+    document.getElementById("txtApellidoEditar").value = apellido;
+    document.getElementById("txtEmailEditar").value = correo;
+
+    //Abrimos el modal después de pasar
+    modalEditar.showModal();
 }
